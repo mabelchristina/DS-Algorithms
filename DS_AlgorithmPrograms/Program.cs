@@ -60,6 +60,29 @@ namespace DS_AlgorithmPrograms
                     string data1 = ordered.Display();
                     File.WriteAllText(filePath, data1);
                     break;
+                case 3:
+                    BalancedParenthesis<char> stack = new BalancedParenthesis<char>();
+                    string expression = "((5+6)∗(7+8)/(4+3(5+6)∗(7+8)/(4+3))";
+                    for (int i = 0; i < expression.Length; i++)
+                    {
+                        if (expression[i].Equals('('))
+                        {
+                            stack.Push(expression[i]);
+                        }
+                        else if (expression[i].Equals(')'))
+                        {
+                            stack.Pop();
+                        }
+                    }
+                    if (stack.CheckParanthesis() == 1)
+                    {
+                        Console.WriteLine("Arithmetic Expression is balanced");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Arithmetic Expression is unbalanced");
+                    }
+                    break;
             }
         }
     }
